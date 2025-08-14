@@ -28,7 +28,7 @@
 				</div>
 			</label>
 			<label class="modal__form__agreement">
-				<input class="modal__form__agreement__checkbox req" id="formAgreement" type="checkbox" name="agreement" checked>
+				<input class="modal__form__agreement__checkbox req" id="formAgreement" type="checkbox" name="agreement">
 				<span class="modal__form__agreement__span"></span>
 				<span> Я согласен(а) на публикацию отзыва и моего фото на сайте. Ознакомлен(а) с
 					<a class="modal__form__agreement__link" target="_blank" href="/privacy">политикой обработки персональных данных</a>

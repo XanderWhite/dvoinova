@@ -40,7 +40,7 @@
 					placeholder="8(999)999-99-99" maxlength="16" minlength="11">
 			</label>
 			<label class="modal__form__agreement modal__form__agreement_present">
-				<input class="modal__form__agreement__checkbox req" id="formAgreement" type="checkbox" name="agreement" checked>
+				<input class="modal__form__agreement__checkbox req" id="formAgreement" type="checkbox" name="agreement">
 				<span class="modal__form__agreement__span"></span>
 				<span>
 					Я принимаю условия
