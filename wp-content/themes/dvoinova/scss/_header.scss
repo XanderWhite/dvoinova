@@ -1,0 +1,154 @@
+.header {
+	position: fixed;
+
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	width: 100%;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+	background-color: $color-lightgrey;
+
+	transition: transform 0.5s ease;
+
+	&.hidden {
+		transform: translateY(-100%);
+	}
+
+	&__inner {
+		padding-top: 0;
+		padding-bottom: 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 40px;
+	}
+
+	&__logo {
+		border-radius: 8px;
+		padding: 8px 45px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		background-color: $color-pink;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $color-white;
+		text-transform: uppercase;
+		flex-direction: column;
+		text-align: center;
+		font-size: clamp(1rem, calc(0.821rem + 0.57vw), 1.25rem); //20px;
+
+		&__span {
+			font-size: 12px;
+		}
+	}
+}
+
+.nav {
+}
+
+.menu {
+	list-style: none;
+	display: flex;
+	justify-content: flex-end;
+
+	flex-wrap: wrap;
+	font-family: "RobotoSlab-Regular", sans-serif;
+	font-size: 14px;
+
+	&__item {
+		position: relative;
+		display: flex;
+
+		&:hover::before,
+		&:focus::before {
+			background-color: $color-white;
+		}
+
+		&::before {
+			width: 100%;
+			height: calc(100% + 2px);
+			z-index: -1;
+			position: absolute;
+			left: 0;
+			top: 0;
+			content: "";
+			transition: 0.3s;
+		}
+	}
+
+	&__link {
+		max-width: 300px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		padding: 33px 20px;
+
+		position: relative;
+		z-index: 1;
+		text-transform: uppercase;
+
+		&:hover,
+		&:focus {
+			color: $color-pink;
+			background-color: $color-white;
+			outline: none;
+		}
+	}
+}
+
+/* ============================= */
+/* media */
+
+@media (max-width: 990px) {
+	.header__inner {
+		max-width: 100%;
+	}
+
+	.nav {
+		width: 100%;
+		padding: 20px;
+		position: fixed;
+		justify-content: center;
+		align-items: center;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		translate: 0 -100%;
+		overflow-y: auto;
+		max-height: var(--element-height);
+		background-color: rgba($color: $color-white, $alpha: 0.95);
+		opacity: 0;
+		transition: 0.3s;
+
+		& .menu__link {
+			padding: 20px 50px;
+		}
+
+		& .menu {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		&.open .menu__link {
+			&:hover,
+			&:focus {
+				background-color: inherit;
+
+				&::before {
+					background-color: inherit;
+					scale: 0;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 990px) {
+	.header__inner {
+		gap: 20px;
+	}
+	.header__logo {
+		padding: 5px 20px;
+	}
+}

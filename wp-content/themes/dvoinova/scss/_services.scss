@@ -1,0 +1,163 @@
+.services {
+	&__content {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+
+		gap: 30px;
+	}
+}
+
+.service {
+	width: 100%;
+	min-width: auto;
+	cursor: pointer;
+	perspective: 1500px;
+
+	&__inner {
+		width: 100%;
+		height: 100%;
+		transition: 1s;
+		position: relative;
+		transform-style: preserve-3d;
+		background-color: $color-lightgrey;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+
+		&::after {
+			opacity: 0;
+			content: "";
+			display: block;
+			width: 100%;
+			height: 3px;
+			position: absolute;
+			left: 0px;
+			bottom: 0px;
+			background-color: $color-pink;
+			transition: 0.3s;
+		}
+	}
+
+	&__back {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 30px;
+		gap: 10px;
+		translate: 0 -50%;
+		backface-visibility: hidden;
+		transform-style: preserve-3d;
+		transform: rotateY(180deg);
+	}
+
+	&__front {
+		backface-visibility: hidden;
+		transform-style: preserve-3d;
+	}
+
+	&__pic {
+		width: 100%;
+		aspect-ratio: 2 / 1;
+		background-color: $color-grey;
+		object-fit: cover;
+	}
+
+	&__title {
+		font-family: "HelveticaNeue-Regular", sans-serif;
+		font-size: 20px;
+		font-weight: 400;
+	}
+	&__price {
+		font-family: "HelveticaNeue-Bold", sans-serif;
+		font-weight: 700;
+		font-size: 16px;
+	}
+
+	&__content {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		padding: 30px;
+		gap: 10px;
+		width: 100%;
+		transform: translateZ(50px);
+	}
+
+	&__list {
+		transform: translateZ(50px);
+
+		list-style: none;
+		width: 100%;
+	}
+	&__item {
+		position: relative;
+		padding-left: 25px;
+		margin: 5px 0;
+
+		&::before {
+			content: "✦";
+			position: absolute;
+
+			left: 0;
+			color: $color-pink;
+			font-size: 16px;
+		}
+	}
+
+	&.rotate &__inner {
+		transform: rotateY(180deg);
+	}
+
+	&.show-back &__back,
+	&.show-back &__front::after {
+		opacity: 1;
+	}
+}
+
+/* ============================= */
+/* media */
+
+@media (max-width: 990px) {
+	.services__content {
+			grid-template-columns: auto;
+			gap: 30px;
+		}
+
+	.service__item {
+			line-height: clamp(1.25rem, calc(0.908rem + 1.56vw), 1.875rem);
+		}
+	}
+
+
+@media (min-width: 449px) and (max-width: 989px) {
+	.service {
+		&__front {
+				transform-style: flat;
+
+				&::after {
+					display: block;
+					content: "";
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 100%;
+					height: 100%;
+					background-color: rgba($color: $color-purple, $alpha: 0.9);
+					transition: 0.5s;
+					opacity: 0;
+				}
+			}
+
+			&__back {
+				transform: none;
+				color: $color-white;
+				transition: 0.5s;
+				transform-style: flat;
+				opacity: 0;
+			}
+
+	}
+}
+

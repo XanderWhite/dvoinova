@@ -1,0 +1,74 @@
+.modal__dialog_privacy {
+	max-width: 700px;
+}
+
+.privacy {
+	background-color: $color-white;
+	border-radius: 20px;
+	padding: 40px 30px;
+	// margin-top: 50px;
+	// margin-bottom: 50px;
+	margin-top: clamp(0rem, calc(-4.375rem + 10vw), 3.125rem);
+	margin-bottom: clamp(0rem, calc(-4.375rem + 10vw), 3.125rem);
+
+	&__article {
+		margin-bottom: 40px;
+	}
+
+	& .title {
+		font-size: 25px;
+	}
+
+	& .main-point {
+		font-weight: bold;
+		font-size: 18px;
+		margin-bottom: 10px;
+	}
+
+	& .sub-point {
+		margin-left: 20px;
+		font-size: 16px;
+		margin-bottom: 10px;
+	}
+}
+
+/* ============================= */
+/* Media */
+
+@media (max-width: 725px) {
+	.privacy {
+		&__article {
+			margin-bottom: 30px;
+		}
+
+		& .title {
+			font-size: 22px;
+		}
+	}
+}
+
+@media (max-width: 700px) {
+	.privacy {
+		border-radius: 0;
+	}
+}
+
+@media (max-width: 400px) {
+	.privacy {
+		&__article {
+			margin-bottom: 20px;
+		}
+
+		& .title {
+			font-size: 18px;
+		}
+
+		& .main-point {
+			font-size: 16px;
+		}
+
+		& .sub-point {
+			font-size: 14px;
+		}
+	}
+}
