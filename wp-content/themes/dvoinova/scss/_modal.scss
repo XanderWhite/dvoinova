@@ -11,7 +11,7 @@
 	align-items: center;
 	justify-content: center;
 	border-radius: 50%;
-	background-color: $color-pink;
+	background-color: $color-accent;
 
 	&:hover {
 		transform: rotate(180deg);
@@ -201,7 +201,7 @@ font-size: clamp(1.438rem, calc(0.949rem + 2.24vw), 2.625rem);
         height: 17px;
         opacity: 0;
         scale: 0;
-        background-color: $color-pink;
+        background-color: $color-accent;
         transition: 0.3s;
         border-radius: 5px;
       }
@@ -212,7 +212,7 @@ font-size: clamp(1.438rem, calc(0.949rem + 2.24vw), 2.625rem);
 }
 
 .modal__form__agreement__link{
-    color: $color-pink;
+    color: $color-accent;
 
     &:hover{
         text-decoration: underline;
@@ -272,7 +272,7 @@ font-size: clamp(1.438rem, calc(0.949rem + 2.24vw), 2.625rem);
         height: 18px;
         opacity: 0;
         scale: 0;
-        background-color: $color-pink;
+        background-color: $color-accent;
         transition: 0.3s;
         border-radius: 50%;
       }

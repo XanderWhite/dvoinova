@@ -1,6 +1,7 @@
 // универсальные инструменты для работы
 @import "var";
 @import "cursor";
+@import "mixins";
 
 // по умолчанию
 @import "svg";
@@ -10,6 +11,7 @@
 @import "animation";
 @import "common";
 @import "btns";
+@import "cookie";
 @import "header";
 @import "intro";
 @import "services";

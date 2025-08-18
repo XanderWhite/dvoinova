@@ -59,9 +59,10 @@
 		</section>
 	</div>
 </footer>
-
-<!-- Модальные окна -->
 <?php
+get_template_part('template-parts/blocks/cookie');
+
+//  Модальные окна
 get_template_part('template-parts/modals/modal-gallery');
 get_template_part('template-parts/modals/modal-present');
 get_template_part('template-parts/modals/modal-review');

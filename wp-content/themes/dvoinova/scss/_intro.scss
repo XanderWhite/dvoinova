@@ -33,7 +33,7 @@
 		transform: translateX(100%);
 
 		&__span {
-			color: $color-pink;
+			color: $color-accent;
 		}
 	}
 
@@ -47,7 +47,7 @@
 .intro__content {
 	min-height: 622px;
 	padding: 75px 100px;
-	background-color: $color-purple;
+	background-color: $color-accent2;
 	color: $color-white;
 	overflow: hidden;
 
@@ -105,7 +105,7 @@
 @media (max-height: 830px) and (max-width: 990px) {
 	.intro {
 		grid-template-rows: var(--element-height) auto;
-		
+
 	}
 }
 

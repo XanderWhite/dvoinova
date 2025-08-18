@@ -1,0 +1,12 @@
+@mixin button(){
+	border-radius: 5px;
+	font-family: $font-button;
+	font-weight: 700;
+	font-size: 15px;
+	padding: 15px 30px;
+	text-transform: uppercase;
+	white-space: nowrap;
+	text-wrap: auto;
+	text-align: center;
+	outline: none;
+}

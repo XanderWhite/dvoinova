@@ -31,7 +31,7 @@
 			position: absolute;
 			left: 0px;
 			bottom: 0px;
-			background-color: $color-pink;
+			background-color: $color-accent;
 			transition: 0.3s;
 		}
 	}
@@ -101,7 +101,7 @@
 			position: absolute;
 
 			left: 0;
-			color: $color-pink;
+			color: $color-accent;
 			font-size: 16px;
 		}
 	}
@@ -144,7 +144,7 @@
 					top: 0;
 					width: 100%;
 					height: 100%;
-					background-color: rgba($color: $color-purple, $alpha: 0.9);
+					background-color: rgba($color: $color-accent2, $alpha: 0.9);
 					transition: 0.5s;
 					opacity: 0;
 				}

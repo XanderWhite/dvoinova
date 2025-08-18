@@ -22,7 +22,7 @@
 		position: absolute;
 		margin: auto;
 
-		background-color: $color-pink;
+		background-color: $color-accent;
 
 		transition: 0.2s linear;
 	}
@@ -37,7 +37,7 @@
 		left: 0;
 		top: 0px;
 
-		background-color: $color-pink;
+		background-color: $color-accent;
 		border-radius: 1px;
 
 		transition: transform 0.2s linear;
@@ -64,46 +64,32 @@
 }
 
 .btn-link {
-	border-radius: 5px;
-	font-family: "HelveticaNeue-Bold", sans-serif;
-	font-weight: 700;
-	font-size: 15px;
+	@include button();
 
 	&:focus {
 		animation: pulse-small 0.5s infinite both alternate ease-in-out;
-		outline: none;
 	}
 
 	&_dark {
 		color: $color-white;
-		background-color: $color-purple;
-		padding: 15px 30px;
+		background-color: $color-accent2;
 		font-size: 16px;
-		text-transform: uppercase;
-		white-space: nowrap;
-		text-wrap: auto;
 
 		&:hover,
 		&:focus {
 			background-color: $color-white;
-			color: $color-purple;
+			color: $color-accent2;
 		}
 	}
 
 	&_pink-hover-light,
 	&_pink-hover-dark {
-		background-color: $color-pink;
-		border-radius: 5px;
-		padding: 15px 30px;
-		text-transform: uppercase;
-		// color: $color-dark;
-		color: $color-purple;
+		background-color: $color-accent;
+		color: $color-accent2;
 		display: inline-block;
-		text-align: center;
 
 		&:hover,
 		&:focus {
-			// color: $color-dark;
 			background-color: $color-white;
 		}
 	}
@@ -111,8 +97,7 @@
 	&_pink-hover-dark {
 		&:hover,
 		&:focus {
-			// background-color: $color-dark;
-			background-color: $color-purple;
+			background-color: $color-accent2;
 			color: $color-white;
 		}
 	}

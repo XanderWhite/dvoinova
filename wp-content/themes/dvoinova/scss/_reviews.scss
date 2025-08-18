@@ -39,7 +39,7 @@
 
 }
 .reviews-pic {
-	background-color: $color-pink;
+	background-color: $color-accent;
 	border-radius: 50%;
 	width: 100px;
 	height: 100px;
@@ -114,7 +114,7 @@ top: 50px;
 .swiper-button-next:focus,
 .swiper-button-prev:focus {
 	outline: none;
-    background-color: $color-pink;
+    background-color: $color-accent;
 }
 
 /* Стили при нажатии */

@@ -28,7 +28,7 @@
 		padding: 8px 45px;
 		margin-top: 5px;
 		margin-bottom: 5px;
-		background-color: $color-pink;
+		background-color: $color-accent;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -42,9 +42,6 @@
 			font-size: 12px;
 		}
 	}
-}
-
-.nav {
 }
 
 .menu {
@@ -90,7 +87,7 @@
 
 		&:hover,
 		&:focus {
-			color: $color-pink;
+			color: $color-accent;
 			background-color: $color-white;
 			outline: none;
 		}
