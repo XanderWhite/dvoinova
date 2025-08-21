@@ -1,29 +1,35 @@
-document.addEventListener('DOMContentLoaded', ()=>{
-	const elem = document.querySelector('.cookie');
-	const button = elem.querySelector('.cookie__button');
+function init() {
+	const elem = document.querySelector(".cookie");
+	const button = elem.querySelector(".cookie__button");
 
-	const getCookie = (name) => {
-		const matches = document.cookie.match(new RegExp(
-			"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-		));
-		return matches ? decodeURIComponent(matches[1]) : undefined;
-	};
-
-	if (!getCookie('visited')) {
-		elem.style.display = 'block';
+	if (!getCookie("visited")) {
+		elem.classList.remove("hide");
+	} else {
+		setCookie(elem);
 	}
 
-	button.addEventListener('click', () => {
-		const date = new Date();
-		date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
-		document.cookie = `visited=true; expires=${date.toUTCString()}; path=/`;
-
-		elem.style.display = 'none';
+	button.addEventListener("click", () => {
+		setCookie(elem);
 	});
+}
 
-	if (getCookie('visited')) {
-		const date = new Date();
-		date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
-		document.cookie = `visited=true; expires=${date.toUTCString()}; path=/`;
+document.addEventListener("DOMContentLoaded", init);
+
+function getCookie(name) {
+	const cookies = document.cookie.split('; ');
+	for (const cookie of cookies) {
+		const [cookieName, cookieValue] = cookie.split('=');
+		if (cookieName === name) {
+			return decodeURIComponent(cookieValue);
+		}
 	}
-});
+	return undefined;
+}
+
+function setCookie(elem) {
+	const date = new Date();
+	date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
+	document.cookie = `visited=true; expires=${date.toUTCString()}; path=/`;
+
+	elem.classList.add("hide");
+}

@@ -21,7 +21,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); print_r('here') ?>>
 	<div class="page__inner <?php echo get_query_var('page_class'); ?>">
 		<h1 class="visually-hidden">Ведущий</h1>
 		<header class="header" id="header">
