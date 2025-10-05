@@ -48,6 +48,7 @@
 				</span>
 			</label>
 			<button class="btn-link btn-link_pink-hover-light" id="present-submit-btn" type="submit">Забронировать подарок</button>
+			<div id="present-captcha-container"></div>
 		</form>
 	</div>
 	<div class="mask">

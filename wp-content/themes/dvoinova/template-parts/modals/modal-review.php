@@ -39,6 +39,8 @@
 				<button class="btn-link btn-link_pink-hover-light" id="review-submit-btn"
 					type="submit">Отправить</button>
 			</div>
+
+			<div id="review-captcha-container"></div>
 		</form>
 	</div>
 	<div class="mask">

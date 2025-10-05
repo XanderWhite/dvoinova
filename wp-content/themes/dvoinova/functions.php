@@ -379,9 +379,26 @@ function my_scripts()
 
 	// Подключение кастомного скрипта (reviews.js)
 	wp_enqueue_script('reviews', get_template_directory_uri() . '/js/reviews.js', array('swiper'), null, true);
+
+	// Подключение Яндекс Captcha
+    wp_enqueue_script(
+        'yandex-captcha',
+        'https://smartcaptcha.yandexcloud.net/captcha.js',
+        array(),
+        null,
+        false // в head для ранней загрузки
+    );
+
+	add_filter('script_loader_tag', 'add_async_defer_attributes', 10, 2);
 }
 
-
+// Добавление async и defer атрибутов в Яндекс Captcha
+function add_async_defer_attributes($tag, $handle) {
+    if ('yandex-captcha' === $handle) {
+        return str_replace(' src', ' async defer src', $tag);
+    }
+    return $tag;
+}
 
 
 //-----------------------------------------------------
