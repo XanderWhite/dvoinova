@@ -17,21 +17,16 @@ function closeModal() {
     if ($(".slider-modal").hasClass("slick-initialized")) {
         $(".slider-modal").slick("unslick");
     }
-    
+
     modalGallery.close();
     document.body.classList.remove("no-scroll");
-    
-    // Удаляем состояние из истории если нужно
-    if (history.state && history.state.modalOpen) {
-        history.back();
-    }
 }
 
 function initGallery() {
     const photo = document.getElementById('photo');
-    
+
     if (!photo) return;
-    
+
     photo.addEventListener('click', function(e) {
         const image = e.target.closest('.photo-img');
         if (!image) return;
@@ -42,7 +37,7 @@ function initGallery() {
 
         document.body.classList.add("no-scroll");
         modalGallery.showModal();
-        
+
         // Добавляем запись в историю браузера
         history.pushState({ modalOpen: true }, '');
 
@@ -75,19 +70,19 @@ function initGallery() {
 
 function addImgToModalSlider(src) {
     const img = document.createElement("img");
-    img.src = src; 
+    img.src = src;
     img.alt = src;
     img.classList.add("slider-img");
-    
+
     const divImage = document.createElement("div");
     divImage.classList.add("slider-item");
     divImage.classList.add("zoomable-image");
     divImage.appendChild(img);
-    
+
     const divContainer = document.createElement("div");
     divContainer.classList.add("zoomable-image-container");
     divContainer.appendChild(divImage);
-    
+
     modalContent.appendChild(divContainer);
 }
 
@@ -155,10 +150,10 @@ function initLoadMore() {
     jQuery(document).ready(function($) {
         $('body').on('click', '.load-more-btn', function(e) {
             e.preventDefault();
-            
+
             var button = $(this);
             var container = $('#gallery-container #photo');
-            
+
             $.ajax({
                 url: ajax_object.ajax_url,
                 type: 'POST',
@@ -174,7 +169,7 @@ function initLoadMore() {
                     if(response.success) {
                         container.append(response.data.html);
                         button.data('page', response.data.next_page);
-                        
+
                         if(!response.data.has_more) {
                             button.parent().remove();
                         } else {
@@ -199,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initGallery();
     initPanzoom();
     initLoadMore();
-    
+
     // Обработчик изменения размера окна
     window.addEventListener("resize", () => {
         updateDisplay();

@@ -106,8 +106,6 @@ top: 50px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-
-
 /* Стили при наведении и фокусе */
 .swiper-button-next:hover,
 .swiper-button-prev:hover,
@@ -141,6 +139,9 @@ left: auto;
 right: 18px;
 }
 
+.swiper-navigation-icon {
+	display: none;
+}
 
 /* ============================= */
 /* media */
