@@ -10,8 +10,9 @@
  * @package solution6
  */
 
+
 ?>
-<footer class="footer" id="contacts">
+<footer class="footer" id="contacts" style="background-image: url('<?php the_field('footer_image-bg', "option") ?>');">
 	<a class="footer__privacy-link" target="_blank" href="/privacy">Политика обработки персональных данных</a>
 	<div class="footer__inner container">
 		<section class="footer__block">
