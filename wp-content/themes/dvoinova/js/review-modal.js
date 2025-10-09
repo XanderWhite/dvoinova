@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Функция инициализации капчи
     function initCaptcha() {
 		console.log('captcha')
+		console.log(YaCaptcha)
         if (typeof YaCaptcha !== 'undefined') {
             captchaWidgetId = YaCaptcha.init('#review-captcha-container', {
                 sitekey: yandexClientKey,
