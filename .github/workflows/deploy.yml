@@ -1,0 +1,22 @@
+name: Deploy to Hosting
+
+on:
+  push:
+    branches: [ hosting, titan ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy to server via SSH
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOSTING_HOST }}
+        username: ${{ secrets.HOSTING_USER }}
+        key: ${{ secrets.HOSTING_SSH_KEY }}
+        script: |
+          cd dvoinova_ru/public_html
+          git fetch origin
+          git checkout ${{ github.ref_name }}
+          git pull origin ${{ github.ref_name }}
+          echo "✅ Successfully deployed ${{ github.ref_name }} branch"
