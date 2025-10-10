@@ -111,13 +111,13 @@
 /* ============================= */
 /* media */
 
-@media (max-width: 990px) {
+@media (max-width: $screen-lg) {
 	.btn-menu {
 		display: flex;
 	}
 }
 
-@media (max-width: 500px) {
+@media (max-width: $screen-sm) {
 	.btn-link_pink {
 		align-self: center;
 	}

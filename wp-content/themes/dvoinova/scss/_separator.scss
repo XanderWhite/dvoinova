@@ -26,7 +26,7 @@
 	}
 }
 
-@media (max-width: 990px) {
+@media (max-width: $screen-lg) {
 	.separator__inner {
 		justify-content: center;
 	}

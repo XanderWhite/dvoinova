@@ -4,9 +4,22 @@
 	<div class="intro-left">
 		<div class="intro__block slider-intro">
 			<?php if (get_field('intro_slider')): ?>
-				<?php while (has_sub_field('intro_slider')) : ?>
+				<?php while (has_sub_field('intro_slider')) :?>
+					<?php
+						$image_desktop = get_sub_field('intro_slider_image');
+						$image_tablet = get_sub_field('intro_slider_image-tablet');
+						$image_mobile = get_sub_field('intro_slider_image-mobile');
+					?>
 					<div class="slider-item">
-						<img class="slider-img" src="<?php the_sub_field('intro_slider_image'); ?>" alt=''>
+						<picture>
+							<?php if ($image_mobile): ?>
+								<source media="(max-width: 539px), (min-width: 1024px) and (max-width: 1279px)" srcset="<?= $image_mobile; ?>">
+							<?php endif; ?>
+							<?php if ($image_tablet): ?>
+								<source media="(max-width: 1023px)" srcset="<?= $image_tablet; ?>">
+							<?php endif; ?>
+							<img class="slider-img" src="<?= $image_desktop; ?>" alt="">
+						</picture>
 					</div>
 				<?php endwhile; ?>
 			<?php endif; ?>

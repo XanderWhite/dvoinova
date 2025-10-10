@@ -78,7 +78,7 @@
 	}
 }
 
-@media (max-width: 990px) {
+@media (max-width: $screen-lg) {
 	.container {
 		max-width: 700px;
 	}

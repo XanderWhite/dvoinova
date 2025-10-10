@@ -97,7 +97,7 @@
 /* ============================= */
 /* media */
 
-@media (max-width: 990px) {
+@media (max-width: $screen-lg) {
 	.header__inner {
 		max-width: 100%;
 	}
@@ -141,7 +141,7 @@
 	}
 }
 
-@media (max-width: 990px) {
+@media (max-width: $screen-lg) {
 	.header__inner {
 		gap: 20px;
 	}

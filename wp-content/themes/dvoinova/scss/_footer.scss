@@ -107,7 +107,7 @@
 /* ============================= */
 /* media */
 
-@media (max-width: 990px) {
+@media (max-width: $screen-lg) {
 	.footer__inner {
 		grid-template-columns: auto;
 	}
