@@ -207,7 +207,7 @@ function my_scripts()
 {
 	//========================================================
 	//CSS
-	wp_enqueue_style('main-theme', get_stylesheet_uri()); // это для подключения файла стиле из темы style.css из корня. оставляем как дань традиции
+	wp_enqueue_style('main-theme', get_stylesheet_uri()); // это для подключения файла стиле из темы style.css из корня. Оставляем как дань традиции
 
 	// Подключение стилей Slick Slider
 	wp_enqueue_style('slick', get_template_directory_uri() . '/slick/slick.css');
