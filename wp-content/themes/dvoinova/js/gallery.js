@@ -1,9 +1,8 @@
-const gallery = document.getElementById("photo");
 const modalGallery = document.getElementById("modal-gallery");
 const modalContent = document.getElementById("modal-content");
 const closeButton = document.getElementById("modal-gallery__close-btn");
 let currentSlide = 0;
-const images = document.querySelectorAll('.photo-img');
+
 
 // Обработчик закрытия модального окна (на случай других способов закрытия)
     modalGallery.addEventListener('close', closeModal);
@@ -23,17 +22,13 @@ function closeModal() {
 }
 
 function initGallery() {
-    const photo = document.getElementById('photo');
+    // const photo = document.getElementById('photo');
+    const images = document.querySelectorAll('.photo-img');
 
-    if (!photo) return;
+    if (!images) return;
 
-    photo.addEventListener('click', function(e) {
-        const image = e.target.closest('.photo-img');
-        if (!image) return;
-
-        // Находим индекс изображения среди всех изображений
-        const allImages = document.querySelectorAll('.photo-img');
-        currentSlide = Array.from(allImages).indexOf(image);
+    images.forEach((image, index)=> {
+        image.addEventListener('click', () => {
 
         document.body.classList.add("no-scroll");
         modalGallery.showModal();
@@ -43,7 +38,7 @@ function initGallery() {
 
         // Очищаем и перезаполняем модальное окно
         modalContent.innerHTML = '';
-        allImages.forEach(img => {
+        images.forEach(img => {
             addImgToModalSlider(img.getAttribute('data-full-url'));
         });
 
@@ -58,7 +53,7 @@ function initGallery() {
             slidesToShow: 1,
             slidesToScroll: 1,
             adaptiveHeight: true,
-            initialSlide: currentSlide,
+            initialSlide: index,
             swipe: false,
             touchMove: false
         });
@@ -66,6 +61,7 @@ function initGallery() {
         // Переинициализируем Panzoom для новых изображений
         initPanzoom();
     });
+    })
 }
 
 function addImgToModalSlider(src) {
@@ -134,18 +130,6 @@ function initPanzoom() {
     });
 }
 
-
-function updateDisplay() {
-    const pathname = window.location.pathname;
-
-    if (ajax_object.is_home) {
-        const display = window.innerWidth >= 767 ? "none" : "block";
-        const items = document.querySelectorAll(".photo-img");
-
-        if (items.length == 9) items[8].style.display = display;
-    }
-}
-
 function initLoadMore() {
     jQuery(document).ready(function($) {
         $('body').on('click', '.load-more-btn', function(e) {
@@ -188,17 +172,12 @@ function initLoadMore() {
     });
 }
 
-// Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
-    updateDisplay();
     initGallery();
     initPanzoom();
     initLoadMore();
 
-    // Обработчик изменения размера окна
     window.addEventListener("resize", () => {
-        updateDisplay();
-
         if ($(".slider-modal").hasClass("slick-initialized")) {
             currentSlide = $(".slider-modal").slick("slickCurrentSlide");
             $(".slider-modal").slick("unslick");
