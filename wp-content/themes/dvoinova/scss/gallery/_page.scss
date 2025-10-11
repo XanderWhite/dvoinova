@@ -1,0 +1,45 @@
+.gallery {
+	background-color: $color-lightgrey;
+
+	&__tabs {
+		display: flex;
+		padding-bottom: 0;
+		padding-top: 1rem;
+
+        & > *:first-child {
+			padding: 0.8rem 5.5rem;
+            border-radius: 0.8rem 0.8rem 0 0;
+            border: 0.2rem $color-bg1 solid;
+			border-bottom: none;
+		}
+
+		& > *:not(:first-child)::after {
+			content: "";
+			width: calc(100% - 2rem);
+			height: 0.2rem;
+			background-color: $color-bg1;
+			position: absolute;
+			top: -0.2rem;
+			left: -1rem;
+		}
+	}
+
+	&__tab {
+        position: relative;
+		padding: 0.8rem 4.5rem;
+		border-top-right-radius: 0.8rem;
+		border: 0.2rem $color-bg1 solid;
+		border-left: none;
+		border-bottom: none;
+		background-color: inherit;
+
+		&.active {
+			border-radius: 0.8rem 0.8rem 0 0;
+			border: 0.2rem $color-bg1 solid;
+			border-bottom: none;
+			padding: 0.8rem 6.5rem;
+			margin: 0 -2rem;
+			background-color: $color-bg1;
+		}
+	}
+}

@@ -207,6 +207,7 @@ function my_scripts()
 {
 	//========================================================
 	//CSS
+
 	wp_enqueue_style('main-theme', get_stylesheet_uri()); // это для подключения файла стиле из темы style.css из корня. Оставляем как дань традиции
 
 	// Подключение стилей Slick Slider
@@ -216,6 +217,16 @@ function my_scripts()
 	// Подключение стилей Swiper
 	wp_enqueue_style('swiper', 'https://unpkg.com/swiper/swiper-bundle.min.css');
 	wp_enqueue_style('main', get_template_directory_uri() . '/css/main.css', array('slick', 'slick-theme', 'swiper'));
+
+	if (is_front_page() || is_home()) {
+        wp_enqueue_style('home-styles', get_template_directory_uri() . '/css/home.css');
+    }
+	else if (is_page('gallery')) {
+        wp_enqueue_style('gallery-styles', get_template_directory_uri() . '/css/gallery.css');
+    }
+	else {
+		wp_enqueue_style('main', get_template_directory_uri() . '/css/main.css');
+	}
 
 	//========================================================
 	//JS
@@ -321,14 +332,6 @@ function my_scripts()
 		null,
 		true
 	);
-	//   wp_enqueue_script(
-	//     'privacy-modal', // Уникальное имя для вашего скрипта
-	//     get_template_directory_uri() . '/js/privacy-modal.js',
-	//     null,
-	//     null,
-	//     true
-	// );
-
 
 	wp_localize_script('gallery', 'ajax_object', array(
 		'get_images_url' => admin_url('admin-ajax.php?action=get_images'),    // URL для AJAX-запроса
